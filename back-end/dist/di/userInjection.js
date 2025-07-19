@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.injectedRefreshTokenController = void 0;
+const refreshTokenController_1 = require("../controllers/refreshTokenController");
+const jwt_1 = require("../services/jwt/jwt");
+const refreshTockenService_1 = require("../services/refreshTockenService");
+const userRepository_1 = require("../repository/userRepository");
+const userRepository = new userRepository_1.UserRepository();
+const tokenService = new jwt_1.JwtService();
+const refreshTokenService = new refreshTockenService_1.RefreshTokenService(tokenService);
+exports.injectedRefreshTokenController = new refreshTokenController_1.RefreshTokenController(refreshTokenService);
