@@ -252,7 +252,7 @@ export function ArticleForm({ initialData, onSubmit, isSubmitting }: ArticleForm
                         />
                       ) : initialData?.images && initialData.images.length > 0 ? (
                         <img
-                          src={`http://localhost:3000/uploads/${initialData.images[0]}`}
+                          src={`https://article-feed-web-application.onrender.com/api/uploads/${initialData.images[0]}`}
                           alt="Current Article Image"
                           className="w-32 h-32 object-cover rounded-lg border"
                           onError={(e) => {

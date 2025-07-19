@@ -220,7 +220,7 @@ const handleAction = async (action: "like" | "dislike" | "block") => {
         <CardContent className="space-y-8">
           {article.images && article.images.length > 0 && (
             <img
-              src={`http://localhost:3000/uploads/${article.images[0]}`} // Only the first image
+              src={`https://article-feed-web-application.onrender.com/api/uploads/${article.images[0]}`} // Only the first image
               alt="Article Image"
               width={800}
               height={400}
