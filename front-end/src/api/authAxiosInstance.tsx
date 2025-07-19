@@ -4,7 +4,7 @@ import { clearUser } from "../redux/slice/userSlice";
 import { toast } from "sonner";
 
 export const authAxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_AUTH_BASEURL || "http://localhost:3000/api",
+  baseURL: import.meta.env.VITE_AUTH_BASEURL || "https://article-feed-web-application.onrender.com/api",
   withCredentials: true,
 });
 
