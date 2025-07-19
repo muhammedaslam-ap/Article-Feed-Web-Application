@@ -17,7 +17,7 @@ export function ArticleCard({ article, onActionSuccess }: ArticleCardProps) {
       {article.images && article.images.length > 0 ? (
         <div className="relative h-48 overflow-hidden">
           <img
-            src={`https://article-feed-web-application.onrender.com/api/uploads/${article.images[0]}`} // To be updated for Vercel
+            src={`https://article-feed-web-application.onrender.com/uploads/${article.images[0]}`} // To be updated for Vercel
             alt={article.title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
