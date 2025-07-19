@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"; // Assuming Redux is used
 import type { RootState } from "@/redux/store"; // Adjust the import based on your store setup
 
-const API_BASE_URL = import.meta.env.VITE_AUTH_BASEURL || "http://localhost:3000"; // Adjust as per your backend URL
+const API_BASE_URL = import.meta.env.VITE_AUTH_BASEURL || "https://article-feed-web-application.onrender.com"; // Adjust as per your backend URL
 
 
 const AUTH_TOKEN = "mock-auth-token-123";
