@@ -19,6 +19,7 @@ export class BaseRepository<TDoc extends Document, TCreate = Partial<Omit<TDoc, 
 
   async update(userID: string, updateData: Partial<TDoc>): Promise<boolean> {
     const result = await this.model.findByIdAndUpdate(userID, updateData, { new: true }).exec();
+    console.log(updateData)
     return !!result;
   }
 

@@ -12,12 +12,12 @@ import {
 } from "../types/user";
 import { comparePassword, hashPassword } from "../util/bcrypt";
 import { CustomError } from "../util/custom.error";
-import { OtpService } from "./otp/otpServices";
+import { IOtpService } from "../interfaces/serviceInterfaces/otpServiceInterface";
 
 export class AuthService implements IAuthService {
   constructor(
     private _userRepository: IUserRepository,
-    private _otpService: OtpService,
+    private _otpService: IOtpService,
     private _jwtService: ITokenService
   ) {}
 

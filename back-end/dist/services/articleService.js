@@ -8,17 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArticleService = void 0;
 const custom_error_1 = require("../util/custom.error");
 const constant_1 = require("../shared/constant");
+const mongoose_1 = __importDefault(require("mongoose"));
 class ArticleService {
     constructor(_repo) {
         this._repo = _repo;
     }
     createArticle(userId, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this._repo.createArticle(data, userId);
+            const objectId = new mongoose_1.default.Types.ObjectId(userId);
+            return this._repo.createArticle(data, objectId);
         });
     }
     updateArticle(articleId, userId, data) {
@@ -71,17 +76,20 @@ class ArticleService {
     }
     likeArticle(articleId, userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this._repo.likeArticle(articleId, userId);
+            const objectId = new mongoose_1.default.Types.ObjectId(userId);
+            yield this._repo.likeArticle(articleId, objectId);
         });
     }
     dislikeArticle(articleId, userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this._repo.dislikeArticle(articleId, userId);
+            const objectId = new mongoose_1.default.Types.ObjectId(userId);
+            yield this._repo.dislikeArticle(articleId, objectId);
         });
     }
     blockArticle(articleId, userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this._repo.blockArticle(articleId, userId);
+            const objectId = new mongoose_1.default.Types.ObjectId(userId);
+            yield this._repo.blockArticle(articleId, objectId);
         });
     }
 }

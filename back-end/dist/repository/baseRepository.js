@@ -36,6 +36,7 @@ class BaseRepository {
     update(userID, updateData) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.model.findByIdAndUpdate(userID, updateData, { new: true }).exec();
+            console.log(updateData);
             return !!result;
         });
     }

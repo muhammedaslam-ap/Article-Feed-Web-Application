@@ -11,7 +11,6 @@ const otpRepository = new OtpRepository();
 const otpServices = new OtpService(otpRepository, userRepository);
 const jwtService = new JwtService();
 
-// 👇 Pass jwtService into authService
 const authService = new AuthService(userRepository, otpServices, jwtService);
 
 export const injectedAuthController = new AuthController(authService, jwtService);

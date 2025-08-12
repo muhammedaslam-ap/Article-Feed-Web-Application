@@ -3,13 +3,16 @@ import { IArticleRepository } from "../interfaces/repositoryInterfaces/articleRe
 import { TArticleInput, TArticleResponse, TArticlePaginatedResponse } from "../types/article";
 import { CustomError } from "../util/custom.error";
 import { ERROR_MESSAGES, HTTP_STATUS } from "../shared/constant";
+import mongoose from "mongoose";
 
 export class ArticleService implements IArticleService {
   constructor(private readonly _repo: IArticleRepository) {}
 
-  async createArticle(userId: string, data: TArticleInput): Promise<TArticleResponse> {
-    return this._repo.createArticle(data, userId as any);
-  }
+
+    async createArticle(userId: string, data: TArticleInput): Promise<TArticleResponse> {
+      const objectId = new mongoose.Types.ObjectId(userId); 
+      return this._repo.createArticle(data, objectId);
+    }
 
     async updateArticle(articleId: string, userId: string, data: Partial<TArticleInput>): Promise<TArticleResponse> {
       const article = await this._repo.findById(articleId);
@@ -56,14 +59,17 @@ export class ArticleService implements IArticleService {
     return this._repo.getArticles(page, pageSize, filters);
   }
   async likeArticle(articleId: string, userId: string): Promise<void> {
-    await this._repo.likeArticle(articleId, userId as any);
+    const objectId = new mongoose.Types.ObjectId(userId); 
+    await this._repo.likeArticle(articleId, objectId);
   }
 
   async dislikeArticle(articleId: string, userId: string): Promise<void> {
-    await this._repo.dislikeArticle(articleId, userId as any);
+    const objectId = new mongoose.Types.ObjectId(userId); 
+    await this._repo.dislikeArticle(articleId, objectId);
   }
 
   async blockArticle(articleId: string, userId: string): Promise<void> {
-    await this._repo.blockArticle(articleId, userId as any);
+    const objectId = new mongoose.Types.ObjectId(userId); 
+    await this._repo.blockArticle(articleId, objectId);
   }
 }

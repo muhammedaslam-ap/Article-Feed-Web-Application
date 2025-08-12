@@ -11,6 +11,5 @@ const userRepository = new userRepository_1.UserRepository();
 const otpRepository = new otpRepository_1.OtpRepository();
 const otpServices = new otpServices_1.OtpService(otpRepository, userRepository);
 const jwtService = new jwt_1.JwtService();
-// 👇 Pass jwtService into authService
 const authService = new authServices_1.AuthService(userRepository, otpServices, jwtService);
 exports.injectedAuthController = new authController_1.AuthController(authService, jwtService);
